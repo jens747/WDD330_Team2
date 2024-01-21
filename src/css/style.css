@@ -94,6 +94,32 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+.mainmenu {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 2px 0px 12px var(--dark-grey);
+}
+
+@keyframes rotateAndBack {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5) rotate(-10deg);
+  }
+  75% {
+    transform: scale(1.5) rotate(10deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.stuffed {
+  animation: rotateAndBack 1s ease forwards;
+}
 /* End utility classes */
 
 /* Cart icon styles */
