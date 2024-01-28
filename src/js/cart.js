@@ -3,6 +3,15 @@ import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
 
+  // jj--if statement added to fix cart.html error
+  if (
+    cartItems === null ||
+    (Array.isArray(cartItems) && cartItems.length === 0)
+  ) {
+    // if cartItems is null, cartItemTemplate is bypassed
+    return;
+  }
+
   // If cartItems gets an array of objects from localStorage
   if (Array.isArray(cartItems)) {
     // Iterate through the array of objects and display the HTML
