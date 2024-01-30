@@ -129,17 +129,17 @@ button {
   text-align: center;
 }
 
-.cart:after{
-  content:attr(value);
-  font-size:14px;
+.cart:after {
+  content: attr(value);
+  font-size: 14px;
   background: red;
-  border-radius:50%;
-  padding:3px;
-  position:relative;
-  left:-12px;
-  top:-15px;
-  opacity:0.9;
-  }
+  border-radius: 50%;
+  padding: 3px;
+  position: relative;
+  left: -12px;
+  top: -15px;
+  opacity: 0.9;
+}
 
 .cart svg {
   width: 25px;

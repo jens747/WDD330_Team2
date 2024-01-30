@@ -1,21 +1,19 @@
 import { getLocalStorage } from "./utils.mjs";
 
-
 var quantity = cartItems;
-localStorage.setItem('price', pr.price);
-localStorage.setItem('qty', pr.quantity); 
+localStorage.setItem("price", pr.price);
+localStorage.setItem("qty", pr.quantity);
 
 var addItem = function (price, qty) {
-    var currentTotal = localStorage.getItem('cartvalue');
-    if(currentTotal)
-        currentTotal = parseFloat(currentTotal) + (parseFloat(price) * parseFloat(qty));
-    else
-        currentTotal = parseFloat(price) * parseFloat(qty);
-    localStorage.setItem('cartvalue', currentTotal);
+  var currentTotal = localStorage.getItem("cartvalue");
+  if (currentTotal)
+    currentTotal =
+      parseFloat(currentTotal) + parseFloat(price) * parseFloat(qty);
+  else currentTotal = parseFloat(price) * parseFloat(qty);
+  localStorage.setItem("cartvalue", currentTotal);
 };
 
- addItem(quantity.price, quantity.quantity);
-
+addItem(quantity.price, quantity.quantity);
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
