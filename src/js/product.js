@@ -19,6 +19,7 @@ function animateCart() {
 }
 
 function addProductToCart(product) {
+  product.Quantity = 1;
   // get the contents of the cart
   let storage = getLocalStorage("so-cart");
   // if there are no contents in the cart, create an
