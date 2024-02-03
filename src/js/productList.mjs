@@ -1,9 +1,11 @@
 import { getData } from "./productData.mjs"
+import { renderListWithTemplate } from "./utils.mjs";
 
-export default async function productList(category = "tents", selector=".product-list") {
-    const data = await getData(category)
-    renderList(data, selector)
-}
+// export default async function productList(category = "tents", selector=".product-list") {
+//     const data = await getData(category);
+//     renderList(data, selector);
+//     renderListWithTemplate(productCardTemplate, el, products);
+// }
 
 
 function productCardTemplate(product) {
@@ -19,7 +21,27 @@ function productCardTemplate(product) {
   </li>`;
 }
 
-function renderList(productList, selector) {
-    const htmlItems = productList.map((product) => productCardTemplate(product));
-    document.querySelector(selector).innerHTML = htmlItems.join("");
+export default async function productList(selector, category) {
+  // get the element we will insert the list into from the selector
+  const el = document.querySelector(selector);
+  // get the list of products
+  const products = await getData(category);
+  console.log(products);
+  // render out the product list to the element
+  renderListWithTemplate(productCardTemplate, el, products);
 }
+
+// function renderList(productList, selector) {
+//     const htmlItems = productList.map((product) => productCardTemplate(product));
+//     document.querySelector(selector).innerHTML = htmlItems.join("");
+// }
+
+// function cartTotal(selector = ".carts") {
+//   var productList = getData(selector);
+//   var totalItems = 0;
+//   for(var i = 0;i<productList.length;i++)
+//   {
+//     totalItems+=(productList[i].quantity);
+//   }
+//   return totalItems;
+// }

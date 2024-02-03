@@ -1,24 +1,28 @@
 import { getLocalStorage } from "./utils.mjs";
 
-addItem(quantity.quantity);
-
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-
-  // If cartItems gets an array of objects from localStorage
-  if (Array.isArray(cartItems)) {
-    // Iterate through the array of objects and display the HTML
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  } else {
-    // Else if cartItems gets an object from localStorage
-    if (typeof cartItems === "object") {
-      // Display the HTML from cartItems object
-      const htmlItems = cartItemTemplate(cartItems);
-      document.querySelector(".product-list").innerHTML = htmlItems;
-    }
-  }
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
+
+// function renderCartContents() {
+//   const cartItems = getLocalStorage("so-cart");
+
+//   // If cartItems gets an array of objects from localStorage
+//   if (Array.isArray(cartItems)) {
+//     // Iterate through the array of objects and display the HTML
+//     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+//     document.querySelector(".product-list").innerHTML = htmlItems.join("");
+//   } else {
+//     // Else if cartItems gets an object from localStorage
+//     if (typeof cartItems === "object") {
+//       // Display the HTML from cartItems object
+//       const htmlItems = cartItemTemplate(cartItems);
+//       document.querySelector(".product-list").innerHTML = htmlItems;
+//     }
+//   }
+// }
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
