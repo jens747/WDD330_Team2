@@ -1,22 +1,24 @@
 import { setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
-import { getData } from "./productData.mjs"
+import { getLocalStorage } from "./utils.mjs";
 import productDetails from "./productDetails.mjs"
 
 const productId = getParam("product");
 productDetails(productId);
 
-const cartCount=document.querySelector('.cart-count');
-  let itemList = getData();
-  let count=itemList.length;
-  cartCount.innerHTML=count;
+// const cartCount=document.querySelector('.cart-count');
+//   let itemList = getLocalStorage("so-cart");
+//   console.log(itemList)
+//   let count=itemList.length;
+//   console.log(count)
+//   cartCount.innerHTML=count;
 
-  if(count==0){
-    cartCount.style.display='none';
-  }else{
-    cartCount.style.display='block';
-  }
+//   if(count==0){
+//     cartCount.style.display='none';
+//   }else{
+//     cartCount.style.display='block';
+//   }
 
 function animateCart() {
   // select the cart backpack icon
@@ -33,9 +35,23 @@ function animateCart() {
     { once: true }
   );
   // Source: https://www.javascripttutorial.net/dom/events/create-a-one-off-event-handler/
+
+  const cartCount=document.querySelector('.cart-count');
+  let itemList = getLocalStorage("so-cart");
+  console.log(itemList)
+  let count=itemList.length;
+  console.log(count)
+  cartCount.innerHTML=count;
+
+  if(count==0){
+    cartCount.style.display='none';
+  }else{
+    cartCount.style.display='block';
+  }
 }
 function addProductToCart(product) {
-  setLocalStorage("so-cart", product);
+  const productArray = [product]
+  setLocalStorage("so-cart", productArray);
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
