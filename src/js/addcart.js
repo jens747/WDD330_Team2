@@ -1,14 +1,12 @@
 import { getLocalStorage } from "./utils.mjs";
 
-const cartCount=document.querySelector('.cart-count');
+const cartCount = document.querySelector(".cart-count");
   let itemList = getLocalStorage("so-cart");
-  console.log(itemList)
-  let count=itemList.length;
-  console.log(count)
-  cartCount.innerHTML=count;
+  let count = itemList.length;
+  cartCount.innerHTML = count;
 
-  if(count==0){
-    cartCount.style.display='none';
+  if(count == 0){
+    cartCount.style.display = "none";
   }else{
-    cartCount.style.display='block';
+    cartCount.style.display = "block";
   }
