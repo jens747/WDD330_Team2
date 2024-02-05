@@ -1,10 +1,22 @@
 import { setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
+import { getData } from "./productData.mjs"
 import productDetails from "./productDetails.mjs"
 
 const productId = getParam("product");
 productDetails(productId);
+
+const cartCount=document.querySelector('.cart-count');
+  let itemList = getData();
+  let count=itemList.length;
+  cartCount.innerHTML=count;
+
+  if(count==0){
+    cartCount.style.display='none';
+  }else{
+    cartCount.style.display='block';
+  }
 
 function animateCart() {
   // select the cart backpack icon

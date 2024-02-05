@@ -6,6 +6,13 @@ export default async function productList(category = "tents", selector=".product
   }
 
 function productCardTemplate(product) {
+
+  // Object.keys(product).forEach(function(key){
+  //   if (product[key] === "989CG") {
+  //     document.getElementById(".product-list").style.visibility = "hidden";
+  //   }
+  // });
+
     return `<li class="product-card">
     <a href="product_pages/index.html?product=${product.Id}">
     <img
@@ -15,20 +22,26 @@ function productCardTemplate(product) {
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
-  </li>`;
+    </li>`;
 }
 
 function renderList(productList, selector) {
+    // Object.keys(product).forEach(function(key){
+    // if (product[key] === "989CG") {
+    //   document.getElementById(".product-list").style.visibility = "hidden";
+    // } else {
+    // const filterItems = productList.filter(product)
+    // productList.filter(products, ["ID", "880RR"])
     const htmlItems = productList.map((product) => productCardTemplate(product));
+    // const newhtmlItems = htmlItems.filter(products, [ "Id" , "880RR"])
+    // const filterItems = items.reduce()
     document.querySelector(selector).innerHTML = htmlItems.join("");
+
+
+
 }
 
-// function cartTotal(selector = ".carts") {
-//   var productList = getData(selector);
-//   var totalItems = 0;
-//   for(var i = 0;i<productList.length;i++)
-//   {
-//     totalItems+=(productList[i].quantity);
-//   }
-//   return totalItems;
-// }
+
+// const cartNum = document.querySelector(".cart");
+//   let count = itemList.length;
+//   cartNum.innerHTML = count;
