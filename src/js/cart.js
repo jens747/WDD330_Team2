@@ -1,9 +1,16 @@
-import { getLocalStorage } from "./utils.mjs";
-
-addItem(quantity.quantity);
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+
+  // jj--if statement added to fix cart.html error
+  if (
+    cartItems === null ||
+    (Array.isArray(cartItems) && cartItems.length === 0)
+  ) {
+    // if cartItems is null, cartItemTemplate is bypassed
+    return;
+  }
 
   // If cartItems gets an array of objects from localStorage
   if (Array.isArray(cartItems)) {
@@ -18,6 +25,7 @@ function renderCartContents() {
       document.querySelector(".product-list").innerHTML = htmlItems;
     }
   }
+  set_delete_buttons();
 }
 
 function cartItemTemplate(item) {
@@ -34,9 +42,29 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
+  <button class="cart-card__delete" data-id="${item.Id}">x</button>
 </li>`;
 
   return newItem;
 }
 
 renderCartContents();
+
+function deleteFromCart(product) {
+  const storage = getLocalStorage("so-cart");
+  let new_storage = [];
+  for (let i = 0; i < storage.length; i++) {
+    if (storage[i].Id != product.srcElement.dataset.id) {
+      new_storage.push(storage[i]);
+    }
+  }
+  setLocalStorage("so-cart", new_storage);
+  renderCartContents();
+}
+
+function set_delete_buttons() {
+  const delete_buttons = document.querySelectorAll(".cart-card__delete");
+  for (let i = 0; i < delete_buttons.length; i++) {
+    delete_buttons[i].addEventListener("click", deleteFromCart);
+  }
+}
