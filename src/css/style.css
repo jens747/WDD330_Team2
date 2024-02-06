@@ -99,7 +99,7 @@ button {
   top: 0;
   z-index: 100;
   background-color: white;
-  box-shadow: 2px 0px 12px var(--dark-grey);
+  border-bottom: 2px solid black;
 }
 
 @keyframes rotateAndBack {
@@ -121,6 +121,42 @@ button {
   animation: rotateAndBack 1s ease forwards;
 }
 /* End utility classes */
+
+/* Alert classes */
+.weekend {
+  margin: 0;
+  color: var(--primary-color);
+  background: var(--dark-grey);
+  padding: .4rem;
+}
+
+.weekday {
+  margin: 0;
+  color: var(--light-grey);
+  background: var(--dark-grey);
+  padding: .4rem;
+}
+
+.sunrise {
+  margin: 0;
+  color: var(--dark-grey);
+  background: var(--primary-color);
+  padding: .4rem;
+}
+
+.midnight {
+  margin: 0;
+  color: var(--dark-grey);
+  background: var(--tertiary-color);
+  padding: .4rem;
+}
+
+.blowout {
+  margin: 0;
+  color: var(--dark-grey);
+  background: var(--light-grey);
+  padding: .4rem;
+}
 
 /* Cart icon styles */
 .cart {
