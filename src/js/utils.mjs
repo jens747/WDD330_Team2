@@ -70,8 +70,8 @@ function loadTemplate(path) {
 }
 
 export function loadHeaderFooter() {
-  const headerTemplateFn = loadTemplate("/public/partials/header.html");
-  const footerTemplateFn = loadTemplate("/public/partials/footer.html");
+  const headerTemplateFn = loadTemplate("partials/header.html");
+  const footerTemplateFn = loadTemplate("partials/footer.html");
 
   const header = document.querySelector("#mainHeader");
   const footer = document.querySelector("#mainFooter");
