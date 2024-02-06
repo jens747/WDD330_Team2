@@ -241,6 +241,15 @@ button {
   grid-column: 3;
 }
 
+.cart-card__delete {
+  grid-row: 1;
+  grid-column: 4;
+  padding: 0.7em;
+  background-color: white;
+  color: black;
+  margin-top: 0.4em;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
