@@ -2,7 +2,7 @@ import { setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 import { getLocalStorage } from "./utils.mjs";
-import productDetails from "./productDetails.mjs"
+import productDetails from "./productDetails.mjs";
 
 const productId = getParam("product");
 productDetails(productId);
@@ -28,14 +28,14 @@ function animateCart() {
   let count = itemList.length;
   cartCount.innerHTML = count;
 
-  if(count == 0){
+  if (count == 0) {
     cartCount.style.display = "none";
-  }else{
+  } else {
     cartCount.style.display = "block";
   }
 }
 function addProductToCart(product) {
-  const productArray = [product]
+  const productArray = [product];
   setLocalStorage("so-cart", productArray);
 }
 // add to cart button event handler
