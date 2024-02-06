@@ -129,6 +129,19 @@ button {
   text-align: center;
 }
 
+.cart-count {
+  position: absolute;
+  background-color: red;
+  top: 5px;
+  right: -5px;
+  padding: 3px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  z-index: 99;
+}
+
 .cart svg {
   width: 25px;
 }
