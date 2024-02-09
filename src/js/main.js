@@ -10,4 +10,4 @@ loadHeaderFooter();
 // jj--add-customizable-alert-to-index.html trello card
 const currentAlerts = alertTime();
 alertList(currentAlerts.currentDay, currentAlerts.timeOfDay);
-// 
+//
