@@ -2,6 +2,11 @@ import productList from "./productList.mjs";
 import alertList from "./alert.mjs";
 import alertTime from "./alerttime.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
+import { newUserCheck } from "./register.mjs";
+
+// jj--call-to-action-register-with-site
+newUserCheck();
+// 
 
 productList();
 
