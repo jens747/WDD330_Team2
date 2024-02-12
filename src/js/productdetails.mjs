@@ -1,5 +1,5 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
+import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 
 let product = {};
 
@@ -37,7 +37,7 @@ function renderProductDetails() {
   document.querySelector("#addToCart").dataset.id = product.Id;
 }
 
-// created by Joel Jensen
+// jj--animate-cart trello
 function animateCart() {
   // select the cart backpack icon
   let bag = document.querySelector(".backpack");
@@ -53,22 +53,15 @@ function animateCart() {
     { once: true }
   );
   // Source: https://www.javascripttutorial.net/dom/events/create-a-one-off-event-handler/
+
+  const cartCount = document.querySelector(".cart-count");
+  let itemList = getLocalStorage("so-cart");
+  let count = itemList.length;
+  cartCount.innerHTML = count;
+
+  if (count == 0) {
+    cartCount.style.display = "none";
+  } else {
+    cartCount.style.display = "block";
+  }
 }
-
-// function addProductToCart(product) {
-//   setLocalStorage("so-cart", product);
-// }
-// function renderProductDetails() {
-//   return;
-// }
-// add to cart button event handler
-// async function addToCartHandler(e) {
-//   const product = await findProductById(e.target.dataset.id);
-//   addProductToCart(product);
-  
-// }
-
-// add listener to Add to Cart button
-// document
-//   .getElementById("addToCart")
-//   .addEventListener("click", addToCartHandler);
