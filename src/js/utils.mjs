@@ -70,11 +70,7 @@ function loadTemplate(path) {
   };
 }
 
-<<<<<<< HEAD
 export async function loadHeaderFooter() {
-=======
-export function loadHeaderFooter() {
->>>>>>> 0bf2404503873f1c26370506d9af345437c5211f
   const headerTemplateFn = loadTemplate("/partials/header.html");
   const footerTemplateFn = loadTemplate("/partials/footer.html");
 
