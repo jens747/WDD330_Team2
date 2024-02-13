@@ -165,14 +165,6 @@ button {
   margin: 1rem auto;
 }
 
-#message-modal {
-
-}
-
-.register-form {
-
-}
-
 fieldset {
   border: 2px inset var(--tertiary-color);
 }
