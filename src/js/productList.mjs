@@ -2,9 +2,11 @@ import { getData } from "./productData.mjs"
 import { renderListWithTemplate } from "./utils.mjs";
 
 export default async function productList(category = "tents", selector = ".product-list") {
-    const data = await getData(category);
-    renderList(data, selector);
-  }
+  const elm = document.querySelector(selector);
+  const data = await getData(category);
+  console.log(`Hello: ${data}`);
+  renderListWithTemplate(productCardTemplate, elm, data);
+}
 
 function productCardTemplate(product) {
 
@@ -22,9 +24,9 @@ function productCardTemplate(product) {
     }
 }
 
-function renderList(dataList, selector) {
-  const elm = document.querySelector(selector);
-  // const htmlItems = dataList.map((product) => productCardTemplate(product));
-  // document.querySelector(selector).innerHTML = htmlItems.join("");
-  renderListWithTemplate(productCardTemplate, elm, dataList);
-}
+// function renderList(dataList, selector) {
+//   const elm = document.querySelector(selector);
+//   // const htmlItems = dataList.map((product) => productCardTemplate(product));
+//   // document.querySelector(selector).innerHTML = htmlItems.join("");
+  
+// }
