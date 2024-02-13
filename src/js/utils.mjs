@@ -21,6 +21,7 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -69,7 +70,11 @@ function loadTemplate(path) {
   };
 }
 
+<<<<<<< HEAD
 export async function loadHeaderFooter() {
+=======
+export function loadHeaderFooter() {
+>>>>>>> 0bf2404503873f1c26370506d9af345437c5211f
   const headerTemplateFn = loadTemplate("/partials/header.html");
   const footerTemplateFn = loadTemplate("/partials/footer.html");
 

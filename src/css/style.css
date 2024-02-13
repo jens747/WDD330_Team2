@@ -99,7 +99,7 @@ button {
   top: 0;
   z-index: 100;
   background-color: white;
-  box-shadow: 2px 0px 12px var(--dark-grey);
+  border-bottom: 2px solid black;
 }
 
 @keyframes rotateAndBack {
@@ -121,6 +121,127 @@ button {
   animation: rotateAndBack 1s ease forwards;
 }
 /* End utility classes */
+
+/* Alert classes */
+.weekend {
+  margin: 0;
+  color: var(--primary-color);
+  background: var(--dark-grey);
+  padding: .4rem;
+}
+
+.weekday {
+  margin: 0;
+  color: var(--light-grey);
+  background: var(--dark-grey);
+  padding: .4rem;
+}
+
+.sunrise {
+  margin: 0;
+  color: var(--dark-grey);
+  background: var(--primary-color);
+  padding: .4rem;
+}
+
+.midnight {
+  margin: 0;
+  color: var(--dark-grey);
+  background: var(--tertiary-color);
+  padding: .4rem;
+}
+
+.blowout {
+  margin: 0;
+  color: var(--dark-grey);
+  background: var(--light-grey);
+  padding: .4rem;
+}
+/* End Alert Classes */
+
+/* Modal Styles */
+.register-modal {
+  max-width: 90vw;
+  margin: 1rem auto;
+}
+
+#message-modal {
+
+}
+
+.register-form {
+
+}
+
+fieldset {
+  border: 2px inset var(--tertiary-color);
+}
+
+.register-label {
+  display: block;
+  margin: .2rem auto;
+}
+
+.label-span {
+  display: block;
+}
+
+#register-name, 
+#register-email {
+  height: 2rem;
+  width: 100%;
+  border: 2px inset var(--tertiary-color);
+}
+
+#registered {
+  padding: 0.5em 2em;
+  background-color: var(--secondary-color);
+  color: white;
+  margin: 1rem auto;
+  display: block;
+  border: 0;
+  font-size: var(--large-font);
+  cursor: pointer;
+}
+
+#registered:hover, 
+.modal-btn:hover {
+  background: var(--dark-grey);
+}
+
+#thanks-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(96, 96, 96, 0.5); 
+  z-index: 1000; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  display: none;
+}
+
+#register-thanks {
+  padding: 1rem 2rem;
+  background: var(--dark-grey);
+  color: var(--light-grey);
+  box-shadow: 2px 2px 6px gray;
+}
+
+.register-fade {
+  display: block;
+  opacity: 1;
+  animation: animateFadeOut 1s forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes animateFadeOut {
+  to {
+    opacity: 0;
+  }
+}
 
 /* Cart icon styles */
 .cart {
