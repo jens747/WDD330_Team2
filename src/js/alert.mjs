@@ -1,5 +1,4 @@
 import { getData } from "./productData.mjs";
-import alertTime from "./alerttime.mjs";
 
 export default async function alertList(day = "friday", banner = "sunrise", selector = ".divider") {
   const elm = document.querySelector(selector);

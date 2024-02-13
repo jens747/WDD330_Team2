@@ -6,7 +6,7 @@ export function newUserCheck() {
   const r = getLocalStorage("registered");
   if (!r || r.name === "" || r.email === "") {
     // Clear data if user has not completed registration 
-    localStorage.removeItem(r);
+    localStorage.removeItem("registered");
     // Take user through registration
     activateModal();
   }
