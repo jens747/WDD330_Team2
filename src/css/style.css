@@ -382,6 +382,13 @@ fieldset {
   grid-column: 3;
 }
 
+.cart-card__quantity button {
+  background-color: white;
+  color: black;
+  padding: 0.2em 0.4em;
+  display: inline;
+}
+
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
