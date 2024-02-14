@@ -10,6 +10,7 @@ function renderCartContents() {
   ) {
     document.querySelector(".cart_product-list").innerHTML = "";
     // if cartItems is null, cartItemTemplate is bypassed
+    document.querySelector(".cart-product-list").innerHTML = null;
     return;
   }
 
@@ -17,6 +18,7 @@ function renderCartContents() {
   if (Array.isArray(cartItems)) {
     // Iterate through the array of objects and display the HTML
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+
     document.querySelector(".cart_product-list").innerHTML = htmlItems.join("");
   } else {
     // Else if cartItems gets an object from localStorage

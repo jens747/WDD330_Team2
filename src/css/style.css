@@ -127,35 +127,35 @@ button {
   margin: 0;
   color: var(--primary-color);
   background: var(--dark-grey);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .weekday {
   margin: 0;
   color: var(--light-grey);
   background: var(--dark-grey);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .sunrise {
   margin: 0;
   color: var(--dark-grey);
   background: var(--primary-color);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .midnight {
   margin: 0;
   color: var(--dark-grey);
   background: var(--tertiary-color);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .blowout {
   margin: 0;
   color: var(--dark-grey);
   background: var(--light-grey);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 /* End Alert Classes */
 
@@ -163,14 +163,6 @@ button {
 .register-modal {
   max-width: 90vw;
   margin: 1rem auto;
-}
-
-#message-modal {
-
-}
-
-.register-form {
-
 }
 
 fieldset {
@@ -271,6 +263,39 @@ fieldset {
 }
 
 /* End cart icon styles */
+
+/* product grid styles */
+.product-grid {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  color: var(--dark-grey);
+  padding-left: 0;
+}
+
+.product-grid > li {
+  width: 150px;
+  /* border: 1px solid var(--light-grey); */
+  padding: 0.5em;
+  margin: 1em;
+}
+.product-grid h2 {
+  margin: 0;
+
+  font-size: 1.2em;
+}
+.product-grid a {
+  text-decoration: none;
+}
+.product-grid a:link,
+.product-grid a:visited {
+  color: var(--dark-grey);
+}
+.product-grid a:hover {
+  text-decoration: underline;
+}
 
 .mission {
   padding: 0 0.5em;

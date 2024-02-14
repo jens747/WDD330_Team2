@@ -1,10 +1,10 @@
-import { getData } from "./productData.mjs";
+// import { getData } from "./productData.mjs";
 
 export default async function alertList(day = "friday", banner = "sunrise", selector = ".divider") {
   const elm = document.querySelector(selector);
 
   try {
-    const alerts = await getData("alert");
+    const alerts = await getAlert("alert");
 
     if (alerts[day] && alerts[day][banner]) {
       let alertSec = document.querySelector("alert-list");
@@ -55,6 +55,20 @@ function setAlert(day, banner, data, parentElm) {
   } catch (error) {
     console.error("setAlert function failed.");
     return;
+  }
+}
+
+function getAlert(category = "tents") {
+  return fetch(`../json/${category}.json`)
+    .then(convertToJson)
+    .then((data) => data);
+}
+
+function convertToJson(res) {
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Bad Response");
   }
 }
 
