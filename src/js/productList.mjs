@@ -16,7 +16,7 @@ function productCardTemplate(product) {
   // }
 }
 
-export default async function productList(category = "tents", selector = ".product-list") {
+export default async function productList(category, selector) {
   const elm = document.querySelector(selector);
   const data = await getData(category);
   console.log(`Hello: ${data}`);
