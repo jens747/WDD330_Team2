@@ -29,6 +29,7 @@ function renderCartContents() {
     }
   }
   set_delete_buttons();
+  set_quantity_buttons();
 }
 
 function cartItemTemplate(item) {
@@ -43,7 +44,7 @@ function cartItemTemplate(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
+  <p class="cart-card__quantity">qty: ${item.Quantity} <button class="cart-card__quantity_increase" data-id="${item.Id}">+</button><button class="cart-card__quantity_decrease" data-id="${item.Id}">-</button></p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <button class="cart-card__delete" data-id="${item.Id}">x</button>
 </li>`;
@@ -70,4 +71,53 @@ function set_delete_buttons() {
   for (let i = 0; i < delete_buttons.length; i++) {
     delete_buttons[i].addEventListener("click", deleteFromCart);
   }
+}
+
+function set_quantity_buttons() {
+  const increase_buttons = document.querySelectorAll(
+    ".cart-card__quantity_increase"
+  );
+  for (let i = 0; i < increase_buttons.length; i++) {
+    increase_buttons[i].addEventListener("click", increase_quantity);
+  }
+  const decrease_buttons = document.querySelectorAll(
+    ".cart-card__quantity_decrease"
+  );
+  for (let i = 0; i < decrease_buttons.length; i++) {
+    decrease_buttons[i].addEventListener("click", decrease_quantity);
+  }
+}
+
+function increase_quantity(product) {
+  const storage = getLocalStorage("so-cart");
+  let new_storage = [];
+  for (let i = 0; i < storage.length; i++) {
+    if (storage[i].Id == product.srcElement.dataset.id) {
+      let newProduct = storage[i];
+      newProduct.Quantity += 1;
+      new_storage.push(newProduct);
+    } else {
+      new_storage.push(storage[i]);
+    }
+  }
+  setLocalStorage("so-cart", new_storage);
+  renderCartContents();
+}
+
+function decrease_quantity(product) {
+  const storage = getLocalStorage("so-cart");
+  let new_storage = [];
+  for (let i = 0; i < storage.length; i++) {
+    if (storage[i].Id == product.srcElement.dataset.id) {
+      if (storage[i].Quantity != 1) {
+        let newProduct = storage[i];
+        newProduct.Quantity -= 1;
+        new_storage.push(newProduct);
+      }
+    } else {
+      new_storage.push(storage[i]);
+    }
+  }
+  setLocalStorage("so-cart", new_storage);
+  renderCartContents();
 }
