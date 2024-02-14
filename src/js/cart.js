@@ -8,6 +8,7 @@ function renderCartContents() {
     cartItems === null ||
     (Array.isArray(cartItems) && cartItems.length === 0)
   ) {
+    document.querySelector(".cart_product-list").innerHTML = "";
     // if cartItems is null, cartItemTemplate is bypassed
     document.querySelector(".cart-product-list").innerHTML = null;
     return;
@@ -17,13 +18,14 @@ function renderCartContents() {
   if (Array.isArray(cartItems)) {
     // Iterate through the array of objects and display the HTML
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".cart-product-list").innerHTML = htmlItems.join("");
+
+    document.querySelector(".cart_product-list").innerHTML = htmlItems.join("");
   } else {
     // Else if cartItems gets an object from localStorage
     if (typeof cartItems === "object") {
       // Display the HTML from cartItems object
       const htmlItems = cartItemTemplate(cartItems);
-      document.querySelector(".cart-product-list").innerHTML = htmlItems;
+      document.querySelector(".cart_product-list").innerHTML = htmlItems;
     }
   }
   set_delete_buttons();
