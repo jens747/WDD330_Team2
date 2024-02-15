@@ -20,10 +20,10 @@ function addToCart() {
   // animate cart
   animateCart();
   // then add the current product to the list
-      cartContents.push(product);
-    setLocalStorage("so-cart", cartContents);
+  cartContents.push(product);
+  setLocalStorage("so-cart", cartContents);
 }
-  function renderProductDetails() {
+function renderProductDetails() {
   document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
     product.NameWithoutBrand;
