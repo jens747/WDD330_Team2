@@ -21,6 +21,7 @@ function addToCart() {
   animateCart();
   // then add the current product to the list
   cartContents.push(product);
+  else {
   setLocalStorage("so-cart", cartContents);
 }
 function renderProductDetails() {
