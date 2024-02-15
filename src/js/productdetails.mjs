@@ -19,19 +19,9 @@ function addToCart() {
   }
   // animate cart
   animateCart();
-  // then if the product is not yet in the cart, add the current product to the list
-  if (cartContents.length == 0) {
-    product.Quantity = 1;
-    cartContents.push(product);
-  }
-  // If it is already in the cart, look for it and increase the quantity by one
+  // then add the current product to the list
+  cartContents.push(product);
   else {
-    for (let i = 0; i < cartContents.length; i++) {
-      if (cartContents[i].Id == product.Id) {
-        cartContents[i].Quantity += 1;
-      }
-    }
-  }
   setLocalStorage("so-cart", cartContents);
 }
 function renderProductDetails() {
