@@ -29,6 +29,7 @@ function renderCartContents() {
     }
   }
   set_delete_buttons();
+  set_quantity_buttons();
 }
 
 function cartItemTemplate(item) {
@@ -43,7 +44,7 @@ function cartItemTemplate(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
+  <p class="cart-card__quantity">qty: ${item.Quantity} <button class="cart-card__quantity_increase" data-id="${item.Id}">+</button><button class="cart-card__quantity_decrease" data-id="${item.Id}">-</button></p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <button class="cart-card__delete" data-id="${item.Id}">x</button>
 </li>`;
