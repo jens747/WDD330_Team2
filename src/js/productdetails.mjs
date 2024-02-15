@@ -11,7 +11,6 @@ export default async function productDetails(productId) {
   // once the HTML is rendered we can add a listener to Add to Cart button
   document.getElementById("addToCart").addEventListener("click", addToCart);
 }
-
 function addToCart() {
   let cartContents = getLocalStorage("so-cart");
   //check to see if there was anything there
@@ -21,23 +20,10 @@ function addToCart() {
   // animate cart
   animateCart();
   // then add the current product to the list
-      cartContents.push(product);
-  }
-  // If it is already in the cart, look for it and increase the quantity by one
-  function addToCart() {
-    let cartContents = getLocalStorage("so-cart");
-    //check to see if there was anything there
-    if (!cartContents) {
-      cartContents = [];
-    }
-    // animate cart
-    animateCart();
-    // then add the current product to the list
-    cartContents.push(product);
-    setLocalStorage("so-cart", cartContents);
-  }
-  
-
+  cartContents.push(product);
+  else {
+  setLocalStorage("so-cart", cartContents);
+}
 function renderProductDetails() {
   document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
