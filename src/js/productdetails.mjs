@@ -12,6 +12,7 @@ export default async function productDetails(productId) {
   document.getElementById("addToCart").addEventListener("click", addToCart);
 }
 
+
 function addToCart() {
   let cartContents = getLocalStorage("so-cart");
   //check to see if there was anything there
