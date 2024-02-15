@@ -20,10 +20,8 @@ function addToCart() {
   }
   // animate cart
   animateCart();
-  // then if the product is not yet in the cart, add the current product to the list
-  if (cartContents.length == 0) {
-    product.Quantity = 1;
-    cartContents.push(product);
+  // then add the current product to the list
+      cartContents.push(product);
   }
   // If it is already in the cart, look for it and increase the quantity by one
   else {
