@@ -35,7 +35,7 @@ function addToCart() {
   }
   setLocalStorage("so-cart", cartContents);
 }
-  
+
 
 function renderProductDetails() {
   document.querySelector("#productName").innerText = product.Brand.Name;
