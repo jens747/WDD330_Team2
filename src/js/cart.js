@@ -72,3 +72,52 @@ function set_delete_buttons() {
     delete_buttons[i].addEventListener("click", deleteFromCart);
   }
 }
+
+function set_quantity_buttons() {
+  const increase_buttons = document.querySelectorAll(
+    ".cart-card__quantity_increase"
+  );
+  for (let i = 0; i < increase_buttons.length; i++) {
+    increase_buttons[i].addEventListener("click", increase_quantity);
+  }
+  const decrease_buttons = document.querySelectorAll(
+    ".cart-card__quantity_decrease"
+  );
+  for (let i = 0; i < decrease_buttons.length; i++) {
+    decrease_buttons[i].addEventListener("click", decrease_quantity);
+  }
+}
+
+function increase_quantity(product) {
+  const storage = getLocalStorage("so-cart");
+  let new_storage = [];
+  for (let i = 0; i < storage.length; i++) {
+    if (storage[i].Id == product.srcElement.dataset.id) {
+      let newProduct = storage[i];
+      newProduct.Quantity += 1;
+      new_storage.push(newProduct);
+    } else {
+      new_storage.push(storage[i]);
+    }
+  }
+  setLocalStorage("so-cart", new_storage);
+  renderCartContents();
+}
+
+function decrease_quantity(product) {
+  const storage = getLocalStorage("so-cart");
+  let new_storage = [];
+  for (let i = 0; i < storage.length; i++) {
+    if (storage[i].Id == product.srcElement.dataset.id) {
+      if (storage[i].Quantity != 1) {
+        let newProduct = storage[i];
+        newProduct.Quantity -= 1;
+        new_storage.push(newProduct);
+      }
+    } else {
+      new_storage.push(storage[i]);
+    }
+  }
+  setLocalStorage("so-cart", new_storage);
+  renderCartContents();
+}
