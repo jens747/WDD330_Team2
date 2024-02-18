@@ -83,3 +83,85 @@ function renderModal() {
     </section>
   `
 }
+
+// Show a half-transparent DIV to "shadow" the page
+// (the form is not inside, but near it, because it shouldn't be half-transparent)
+function openNewsletter() {
+  let nlContainer = document.createElement("div");
+  nlContainer.id = "newsletter-container";
+
+  // make the page unscrollable while the modal form is open
+  document.body.style.overflowY = "hidden";
+
+  document.body.append(nlContainer);
+  nlContainer.style.display = "block";
+}
+
+function closeNewsletter() {
+  document.querySelector("#newsletter-container").remove();
+  document.body.style.overflowY = "";
+}
+
+// function showPrompt(callback) {
+function showPrompt() {
+  openNewsletter();
+  let form = document.querySelector(".newsletter-form");
+  let nlClose = document.querySelector("#newsletter-close");
+  let nlModal = document.querySelector(".newsletter-modal");
+  document.body.append(nlModal);
+  nlModal.style.display = "flex";
+
+  function complete(value) {
+    closeNewsletter();
+    nlModal.style.display = "none";
+    document.onkeydown = null;
+    // callback(value);
+    console.log(value);
+  }
+
+  form.onsubmit = function() {
+    addThanks();
+    
+    let value = form.email.value;
+
+    if (value == "") return false; // ignore empty submit
+  
+    setLocalStorage("newsletter", {
+      "email": value
+    });
+    complete(value);
+    return false;
+  };
+
+  nlClose.addEventListener("click", function() {
+    complete(null);
+  });
+
+  form.elements[1].focus();
+}
+
+const nlo = document.querySelector("#newsletter-open")
+
+nlo.onclick = function() {
+  nlo.style.display = "none";
+  showPrompt();
+};
+
+function addThanks() {
+  const mission = document.querySelector(".mission");
+
+  // Create a new div element
+  const thanks = document.createElement("section");
+  thanks.id = "thanks-container";
+
+  const nlThanks = document.createElement("div");
+  nlThanks.id = "newsletter-thanks";
+  nlThanks.textContent = "You're on the list!";
+
+  thanks.appendChild(nlThanks);
+
+  // Append the new div to the parent of mission
+  mission.parentNode.insertBefore(thanks, mission.nextSibling);
+  
+  thanks.style.display = "block";
+}

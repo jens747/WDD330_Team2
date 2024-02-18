@@ -201,20 +201,6 @@ fieldset {
   background: var(--dark-grey);
 }
 
-#thanks-container {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(96, 96, 96, 0.5); 
-  z-index: 1000; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  display: none;
-}
-
 #register-thanks {
   padding: 1rem 2rem;
   background: var(--dark-grey);
@@ -234,6 +220,103 @@ fieldset {
     opacity: 0;
   }
 }
+
+/* Newsletter styles */
+#newsletter-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-grey);
+  opacity: .4;
+}
+
+.newsletter-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#newsletter-div {
+  padding: 1rem;
+  width: 18rem;
+  max-width: 80%;
+  background: whitesmoke;
+  border: 2px outset var(--light-grey);
+}
+
+.newsletter-span {
+  margin-right: 8.9em;
+}
+
+#newsletter-name, 
+#newsletter-email {
+  font-size: .9em;
+  border: 2px inset var(--light-grey);
+}
+
+#newsletter-submit {
+  padding: .2em 1.4em;
+  font-size: .9em;
+  margin: 0.2em .4em;
+  margin-top: 1em;
+  border: none;
+  background: var(--primary-color);
+  box-shadow: 2px 2px 4px lightgray;
+  color: var(--dark-grey);
+}
+
+#newsletter-open {
+  width: 100%;
+  padding: 1em;
+  border-radius: 0px;
+  border: none;
+  background: var(--secondary-color);
+  color: whitesmoke;
+  font-size: 1.2em;
+}
+
+#newsletter-open:hover {
+  background-color: var(--dark-grey);
+}
+
+#newsletter-close {
+  padding: .2em 1.4em;
+  font-size: .9em;
+  margin: 0.2em .4em;
+  border: none;
+  background: var(--primary-color);
+  box-shadow: 2px 2px 4px lightgray;
+  color: var(--dark-grey);
+}
+
+#newsletter-submit:hover, 
+#newsletter-close:hover {
+  background: var(--dark-grey);
+  color: whitesmoke;
+}
+
+#newsletter-thanks {
+  width: 100%;
+  padding: 1em;
+  border-radius: 0px;
+  border: none;
+  background: var(--secondary-color);
+  color: whitesmoke;
+  font-size: 1.2em;
+  text-align: center;
+}
+/* End Newsletter styles */
 
 /* Cart icon styles */
 .cart {
