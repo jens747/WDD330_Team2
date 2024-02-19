@@ -135,15 +135,3 @@ function newPriceTemplate(item) {
 
   return newPrice;
 }
-// function price_total() {
-//   var container = document.getElementsByClassName("cart_product-list");
-//   var updateCart = container.getElementsByClassName("cart-card divider")
-//   for (let i = 0; i < updateCart.length; i++) {
-//     var updatedCart = updateCart[i]
-//     var priceElement = updatedCart.getElementsByClassName("cart-price")
-//     var quantityElement = updatedCart.getElementsByClassName("cart-card__quantity")
-//     console.log(priceElement, quantityElement)
-//   }
-
-// }
-
