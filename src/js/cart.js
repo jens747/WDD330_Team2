@@ -131,7 +131,7 @@ function decrease_quantity(product) {
 function newPriceTemplate(item) {
 
   const newPrice = `<div class="cart-price-hide"></div>
-  <p class="cart-price">Total: ${item.FinalPrice * item.Quantity}</p>`
+  <p class="cart-price">Total: $${item.FinalPrice * item.Quantity}</p>`
 
   return newPrice;
 }
