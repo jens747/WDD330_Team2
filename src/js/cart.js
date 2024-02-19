@@ -21,7 +21,7 @@ function renderCartContents() {
     document.querySelector(".cart_product-list").innerHTML = htmlItems.join("");
   
     const priceItems = cartItems.map((item) => newPriceTemplate(item));
-    document.querySelector(".cart-price-hide").innerHTML = priceItems.join("");
+    document.querySelector(".cart_product-price").innerHTML = priceItems.join("");
   } else {
     // Else if cartItems gets an object from localStorage
     if (typeof cartItems === "object") {
@@ -31,7 +31,7 @@ function renderCartContents() {
 
       //Display Price
       const priceItems = newPriceTemplate(cartItems);
-      document.querySelector(".cart-price-hide").innerHTML = priceItems;
+      document.querySelector(".cart_product-price").innerHTML = priceItems;
     }
   }
   set_delete_buttons();
@@ -131,7 +131,19 @@ function decrease_quantity(product) {
 function newPriceTemplate(item) {
 
   const newPrice = `<div class="cart-price-hide"></div>
-  <p class="cart-price">Total: $${item.FinalPrice * item.Quantity}</p>`
+  <p class="cart-price">Total: ${item.FinalPrice * item.Quantity}</p>`
 
   return newPrice;
 }
+// function price_total() {
+//   var container = document.getElementsByClassName("cart_product-list");
+//   var updateCart = container.getElementsByClassName("cart-card divider")
+//   for (let i = 0; i < updateCart.length; i++) {
+//     var updatedCart = updateCart[i]
+//     var priceElement = updatedCart.getElementsByClassName("cart-price")
+//     var quantityElement = updatedCart.getElementsByClassName("cart-card__quantity")
+//     console.log(priceElement, quantityElement)
+//   }
+
+// }
+
