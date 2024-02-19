@@ -68,14 +68,14 @@ function animateCart() {
   );
   // Source: https://www.javascripttutorial.net/dom/events/create-a-one-off-event-handler/
 
-  const cartCount = document.querySelector(".cart-count");
-  let itemList = getLocalStorage("so-cart");
-  let count = itemList.length;
-  cartCount.innerHTML = count;
+  // const cartCount = document.querySelector(".cart-count");
+  // let itemList = getLocalStorage("so-cart");
+  // let count = itemList.length;
+  // cartCount.innerHTML = count;
 
-  if (count == 0) {
-    cartCount.style.display = "none";
-  } else {
-    cartCount.style.display = "block";
-  }
+  // if (count == 0) {
+  //   cartCount.style.display = "none";
+  // } else {
+  //   cartCount.style.display = "block";
+  // }
 }

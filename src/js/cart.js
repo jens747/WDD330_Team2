@@ -18,14 +18,20 @@ function renderCartContents() {
   if (Array.isArray(cartItems)) {
     // Iterate through the array of objects and display the HTML
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-
     document.querySelector(".cart_product-list").innerHTML = htmlItems.join("");
+  
+    const priceItems = cartItems.map((item) => newPriceTemplate(item));
+    document.querySelector(".cart-price-hide").innerHTML = priceItems.join("");
   } else {
     // Else if cartItems gets an object from localStorage
     if (typeof cartItems === "object") {
       // Display the HTML from cartItems object
       const htmlItems = cartItemTemplate(cartItems);
       document.querySelector(".cart_product-list").innerHTML = htmlItems;
+
+      //Display Price
+      const priceItems = newPriceTemplate(cartItems);
+      document.querySelector(".cart-price-hide").innerHTML = priceItems;
     }
   }
   set_delete_buttons();
@@ -120,4 +126,12 @@ function decrease_quantity(product) {
   }
   setLocalStorage("so-cart", new_storage);
   renderCartContents();
+}
+
+function newPriceTemplate(item) {
+
+  const newPrice = `<div class="cart-price-hide"></div>
+  <p class="cart-price">Total: $${item.FinalPrice * item.Quantity}</p>`
+
+  return newPrice;
 }
