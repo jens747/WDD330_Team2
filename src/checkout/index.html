@@ -8,7 +8,7 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/addcart.js" type="module"></script>
     <script src="../js/main.js" type="module"></script>
   </head>
@@ -67,6 +67,46 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <form action="submit">
+        <fieldset>
+          <legend>Shipping</legend>
+          <label for="firstName">First Name</label>
+          <input type="text" required name="fname">
+          <label for="lastName">Last Name</label>
+          <input type="text" required name="lname">
+
+          <label for="address">Address</label>
+          <input type="text" required name="street">
+
+          <label for="city">City</label>
+          <input type="text" required name="city">
+
+          <label for="lastName">State</label>
+          <input type="text" required name="state">
+
+          <label for="zip">Zip</label>
+          <input type="number" required name="zip">
+        </fieldset>
+        <!-- card Info -->
+        <fieldset>
+          <legend>Payment</legend>
+
+          <label for="cardNumber">Card Number</label>
+          <input type="number" required name="cardNumber">
+
+          <label for="expiration">Expiration</label>
+          <input type="month" required name="expiration">
+
+          <label for="code">Security Code</label>
+          <input type="number" required name="code">
+        </fieldset>
+
+        <fieldset>
+          <legend>Order Summary</legend>
+          <!-- javascript that thingy -->
+        </fieldset>
+        <button type="submit" class="button">hello</button>
+      </form>
     </main>
 
     <footer id="mainFooter"></footer>
