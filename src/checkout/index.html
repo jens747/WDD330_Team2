@@ -9,6 +9,7 @@
     <title>Sleep Outside | Checkout</title>
 
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/checkoutProcess.mjs" type="module"></script>
     <script src="../js/addcart.js" type="module"></script>
     <script src="../js/main.js" type="module"></script>
   </head>
@@ -101,9 +102,24 @@
           <input type="number" required name="code">
         </fieldset>
 
-        <fieldset>
-          <legend>Order Summary</legend>
-          <!-- javascript that thingy -->
+        <fieldset id="orderSummary">
+          <!-- <legend>Order Summary</legend>
+          <div>
+            <p>Item Subtotal({itemNumber})</p>
+            <p>{itemTotal}</p>
+          </div>
+          <div>
+            <p>Shipping Estimate</p>
+            <p>{shipping}</p>
+          </div>
+          <div>
+            <p>Tax</p>
+            <p>{tax}</p>
+          </div>
+          <div>
+            <p>Order Total</p>
+            <p>{orderTotal}</p>
+          </div> -->
         </fieldset>
         <button type="submit" class="button">hello</button>
       </form>
