@@ -19,6 +19,10 @@ function addToCart() {
   }
   // animate cart
   animateCart();
+
+  // update cart total
+  updateCart();
+
   // then add the current product to the list
   cartContents.push(product);
   setLocalStorage("so-cart", cartContents);
@@ -27,8 +31,32 @@ function renderProductDetails() {
   document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
     product.NameWithoutBrand;
-  document.querySelector("#productImage").src = product.Image;
-  document.querySelector("#productImage").alt = product.Name;
+  // document.querySelector("#productImage").src = product.Image;
+  // document.querySelector("#productImage").alt = product.Name;
+  // jj--correct-product-image-size
+  const productPicture = document.querySelector("#productPicture");
+  const imgXLarge = document.createElement("source");
+  imgXLarge.setAttribute("media", "(min-width: 320px)");
+  imgXLarge.setAttribute("srcset", product.Images.PrimaryExtraLarge);
+  productPicture.appendChild(imgXLarge);
+
+  const imgLarge = document.createElement("source");
+  imgLarge.setAttribute("media", "(min-width: 256px)");
+  imgLarge.setAttribute("srcset", product.Images.PrimaryLarge);
+  productPicture.appendChild(imgLarge);
+
+  const imgMedium = document.createElement("source");
+  imgMedium.setAttribute("media", "(min-width: 192px)");
+  imgMedium.setAttribute("srcset", product.Images.PrimaryMedium);
+  productPicture.appendChild(imgMedium);
+
+  // Creating the <img> element for the default image
+  const imgElement = document.createElement("img");
+  imgElement.setAttribute("src", product.Images.PrimarySmall);
+  imgElement.setAttribute("alt", `Image of ${product.Name}`);
+  imgElement.id = "productImage"; // Re-adding the ID if needed
+  imgElement.className = "divider"; // Re-adding any classes if needed
+  productPicture.appendChild(imgElement);
   document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
   document.querySelector("#productColorName").innerText =
     product.Colors[0].ColorName;
@@ -40,7 +68,9 @@ function renderProductDetails() {
 // jj--animate-cart trello
 function animateCart() {
   // select the cart backpack icon
-  let bag = document.querySelector(".backpack");
+  let bag = document.querySelector(".cart").querySelector("a > svg");
+  // let bag = document.querySelector(".backpack");
+  bag.classList.add("backpack");
   // add the animation class to the cart backpack icon
   bag.classList.add("stuffed");
 
@@ -53,10 +83,13 @@ function animateCart() {
     { once: true }
   );
   // Source: https://www.javascripttutorial.net/dom/events/create-a-one-off-event-handler/
+}
 
+function updateCart() {
   const cartCount = document.querySelector(".cart-count");
   let itemList = getLocalStorage("so-cart");
-  let count = itemList.length;
+  console.log(itemList.length);
+  let count = itemList.length + 1;
   cartCount.innerHTML = count;
 
   if (count == 0) {
