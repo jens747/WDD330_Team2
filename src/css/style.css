@@ -542,6 +542,10 @@ fieldset {
   margin-top: 0.4em;
 }
 
+.productBreadCrumb span.title {
+  margin: 2em;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
