@@ -3,61 +3,61 @@
     "sunrise": {
       "message": "Early bird special!",
       "layout": "sunrise",
-      "background": "canary", 
+      "background": "canary",
       "color": "black"
-    }, 
-    "midnight" : {
+    },
+    "midnight": {
       "message": "Night owl sale!",
       "layout": "midnight",
       "background": "dark blue",
       "color": "white"
     }
-  },   
+  },
   "saturday": {
     "daytime": {
       "message": "Weekend warrior blowout sale!",
       "layout": "blowout",
-      "background": "green", 
+      "background": "green",
       "color": "white"
     }
-  }, 
+  },
   "monday": {
     "daytime": {
       "message": "Workin' for the weekend.",
       "layout": "weekday",
-      "background": "purple", 
+      "background": "purple",
       "color": "white"
     }
-  }, 
+  },
   "tuesday": {
     "daytime": {
       "message": "Workin' for the weekend.",
       "layout": "weekday",
-      "background": "purple", 
+      "background": "purple",
       "color": "white"
     }
-  }, 
+  },
   "wednesday": {
     "daytime": {
       "message": "Workin' for the weekend.",
       "layout": "weekday",
-      "background": "purple", 
+      "background": "purple",
       "color": "white"
     }
-  }, 
+  },
   "thursday": {
     "daytime": {
       "message": "Workin' for the weekend.",
       "layout": "weekday",
-      "background": "purple", 
+      "background": "purple",
       "color": "white"
     }
-  }, 
+  },
   "weekend": {
     "daytime": {
       "message": "Enjoy your weekend!",
       "layout": "weekend",
-      "background": "green", 
+      "background": "green",
       "color": "white"
     }
   }

@@ -133,35 +133,35 @@ button {
   margin: 0;
   color: var(--primary-color);
   background: var(--dark-grey);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .weekday {
   margin: 0;
   color: var(--light-grey);
   background: var(--dark-grey);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .sunrise {
   margin: 0;
   color: var(--dark-grey);
   background: var(--primary-color);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .midnight {
   margin: 0;
   color: var(--dark-grey);
   background: var(--tertiary-color);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .blowout {
   margin: 0;
   color: var(--dark-grey);
   background: var(--light-grey);
-  padding: .4rem;
+  padding: 0.4rem;
 }
 /* End Alert Classes */
 
@@ -518,6 +518,13 @@ fieldset {
 .cart-card__quantity {
   grid-row: 1;
   grid-column: 3;
+}
+
+.cart-card__quantity button {
+  background-color: white;
+  color: black;
+  padding: 0.2em 0.4em;
+  display: inline;
 }
 
 .cart-card__price {
