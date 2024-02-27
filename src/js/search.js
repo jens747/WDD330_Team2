@@ -1,7 +1,7 @@
-import productList from "./productList.mjs";
-// import { getParam } from "./utils.mjs";
+// import productList from "./productList.mjs";
+// // import { getParam } from "./utils.mjs";
 
-// const searchcategory = getParam("category");
-// productList(searchcategory, ".product-list");
+// // const searchcategory = getParam("category");
+// // productList(searchcategory, ".product-list");
 
-console.log(productList);
+// console.log(productList);
