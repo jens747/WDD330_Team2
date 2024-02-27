@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { checkout } from "./externalServices.mjs";
 
 function formDataToJSON(formElement) {
@@ -81,6 +81,8 @@ const checkoutProcess = {
     json.shipping = this.shipping;
     json.items = packageItems(this.list);
     console.log(json);
+    setLocalStorage("");
+    window.location.href = "../checkout/success.html";
     try {
       const res = await checkout(json);
       console.log(res);
