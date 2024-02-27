@@ -58,14 +58,15 @@ export async function renderWithTemplate(
   if (callback) {
     callback(data);
   }
+  updateCart();
 }
 
 function loadTemplate(path) {
   return async function () {
     const res = await fetch(path);
     if (res.ok) {
-    const html = await res.text();
-    return html;
+      const html = await res.text();
+      return html;
     }
   };
 }
@@ -79,4 +80,18 @@ export function loadHeaderFooter() {
 
   renderWithTemplate(headerTemplateFn, header);
   renderWithTemplate(footerTemplateFn, footer);
+}
+
+export function updateCart() {
+  const cartCount = document.querySelector(".cart-count");
+
+  let itemList = getLocalStorage("so-cart");
+  let count = itemList.length;
+  cartCount.innerHTML = count;
+
+  if (count == 0) {
+    cartCount.style.display = "none";
+  } else {
+    cartCount.style.display = "block";
+  }
 }
