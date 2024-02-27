@@ -518,6 +518,14 @@ fieldset {
 .cart-card__quantity {
   grid-row: 1;
   grid-column: 3;
+  padding-left: 0.3em;
+}
+
+.cart-card__quantity button {
+  background-color: white;
+  color: black;
+  padding: 0.2em 0.4em;
+  display: inline;
 }
 
 .cart-card__quantity button {
@@ -551,7 +559,7 @@ fieldset {
   }
   .cart-card {
     font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+    grid-template-columns: 150px auto 25% 8%;
   }
 }
 
