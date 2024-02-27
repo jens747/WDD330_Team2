@@ -76,6 +76,17 @@ header {
 .logo--square > div {
   margin-top: -1.7em;
 }
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: .25rem;
+}
+
+.input {
+  font-size: 1rem;
+}
+
 /* utility classes */
 .highlight {
   color: var(--tertiary-color);
