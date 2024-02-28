@@ -20,8 +20,9 @@ document.forms["checkout"].addEventListener("submit", (e) => {
 });
 
 // listening for click on the button
-document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
-  e.preventDefault();
+// Team7 commented out
+// document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
+//   e.preventDefault();
 
-  checkoutProcess.checkout(document.forms["checkout"]);
-});
+//   checkoutProcess.checkout(document.forms["checkout"]);
+// });

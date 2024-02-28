@@ -86,7 +86,9 @@ export function updateCart() {
   const cartCount = document.querySelector(".cart-count");
 
   let itemList = getLocalStorage("so-cart");
-  let count = itemList.length;
+  let count = itemList.reduce((sum, itemValue) => {
+    return sum + itemValue.Quantity;
+  }, 0);
   cartCount.innerHTML = count;
 
   if (count == 0) {
@@ -108,26 +110,29 @@ export function updateCart() {
 //   document.querySelector("checkout-error").scrollIntoView(true);
 // }
 
-export function alertMessage(message, scroll = true) {
-  const checkoutError =  `
-     <section class="checkout-error">
-       <p>${message}</p>
-       <p>X</p>
-     </section>`; 
+export function alertMessage(message, scroll = true, duration = 3000) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
 
-  // add the alert to the top of main
-  const main = document.querySelector("main");
-  main.prepend(checkoutError);
-
-  // add a listener to the alert to see if they clicked on the X
-  // if they did then remove the child
-  checkoutError.addEventListener("click", function() {
-    main.removeChild(this);
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
   });
-  
+  const main = document.querySelector("main");
+  main.prepend(alert);
   // make sure they see the alert by scrolling to the top of the window
   //we may not always want to do this...so default to scroll=true, but allow it to be passed in and overridden.
-  if(scroll)
-    window.scrollTo(0,0);
+  if (scroll) window.scrollTo(0, 0);
 
+  // left this here to show how you could remove the alert automatically after a certain amount of time.
+  // setTimeout(function () {
+  //   main.removeChild(alert);
+  // }, duration);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
