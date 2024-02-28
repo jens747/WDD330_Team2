@@ -47,8 +47,14 @@ function cartItemTemplate(item) {
 }
 
 function calculateListTotal(list) {
-  const amounts = list.map((item) => item.FinalPrice);
-  const total = amounts.reduce((sum, item) => sum + item, 0);
+  const amounts = list.map(item => ({
+    price: item.FinalPrice,
+    qty: item.Quantity
+  }));
+  const total = amounts.reduce((sum, item) => {
+    let itemSub = item.price * item.qty;
+    return sum + itemSub;
+  }, 0);
   return total;
 }
 

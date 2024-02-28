@@ -103,9 +103,7 @@ function animateCart() {
 function updateCart() {
   const cartCount = document.querySelector(".cart-count");
   let itemList = getLocalStorage("so-cart");
-  let count = itemList.reduce((sum, itemValue) => {
-    return sum + itemValue.Quantity;
-  }, 0);
+  let count = itemList.reduce((sum, itemValue) => sum + itemValue.Quantity, 0);
   cartCount.innerHTML = count;
 
   if (count == 0) {
