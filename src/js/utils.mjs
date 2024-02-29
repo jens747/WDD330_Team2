@@ -83,16 +83,20 @@ export function loadHeaderFooter() {
 }
 
 export function updateCart() {
-  const cartCount = document.querySelector(".cart-count");
+  try {
+    const cartCount = document.querySelector(".cart-count");
 
-  let itemList = getLocalStorage("so-cart");
-  let count = itemList.reduce((sum, itemValue) => sum + itemValue.Quantity, 0);
-  cartCount.innerHTML = count;
+    let itemList = getLocalStorage("so-cart");
+    let count = itemList.reduce((sum, itemValue) => sum + itemValue.Quantity, 0);
+    cartCount.innerHTML = count;
 
-  if (count == 0) {
-    cartCount.style.display = "none";
-  } else {
-    cartCount.style.display = "block";
+    if (count == 0) {
+      cartCount.style.display = "none";
+    } else {
+      cartCount.style.display = "block";
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
