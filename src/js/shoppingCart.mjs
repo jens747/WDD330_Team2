@@ -7,9 +7,10 @@ export default function ShoppingCart() {
   renderListWithTemplate(cartItemTemplate, outputEl, cartItems);
   set_delete_buttons();
   set_quantity_buttons();
-  updateCart();
+  
   const total = calculateListTotal(cartItems);
   displayCartTotal(total);
+  updateCart();
 }
 
 function displayCartTotal(total) {
@@ -18,7 +19,7 @@ function displayCartTotal(total) {
   if (total > 0) {
     // show our checkout button and total if there are items in the cart.
     document.querySelector(".list-footer").classList.remove("hide");
-    document.querySelector(".list-total").innerText += ` $${total}`;
+    document.querySelector(".list-total").innerText += `Total: $${total}`;
   } else {
     document.querySelector(".list-footer").classList.add("hide");
   }
@@ -47,8 +48,14 @@ function cartItemTemplate(item) {
 }
 
 function calculateListTotal(list) {
-  const amounts = list.map((item) => item.FinalPrice);
-  const total = amounts.reduce((sum, item) => sum + item, 0);
+  const amounts = list.map(item => ({
+    price: item.FinalPrice,
+    qty: item.Quantity
+  }));
+  const total = amounts.reduce((sum, item) => {
+    let itemSub = item.price * item.qty;
+    return sum + itemSub;
+  }, 0);
   return total;
 }
 
