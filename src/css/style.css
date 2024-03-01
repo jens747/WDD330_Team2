@@ -526,6 +526,7 @@ fieldset {
   padding-left: 0.3em;
 }
 
+
 .cart-card__quantity button {
   background-color: white;
   color: black;
@@ -552,6 +553,19 @@ fieldset {
   background-color: white;
   color: black;
   margin-top: 0.4em;
+}
+
+/* alert styles */
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  border: 1px solid darkorange;
+}
+.alert > p {
+  margin: 0;
 }
 
 @media screen and (min-width: 500px) {

@@ -1,5 +1,5 @@
 import { findProductById } from "./productData.mjs";
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, alertMessage } from "./utils.mjs";
 
 let product = {};
 
@@ -19,22 +19,27 @@ function addToCart() {
   if (!cartContents) {
     cartContents = [];
   }
- // animate cart
- animateCart();
- // then if the product is not yet in the cart, add the current product to the list
- if (cartContents.length == 0) {
-   product.Quantity = 1;
-   cartContents.push(product);
- }
- // If it is already in the cart, look for it and increase the quantity by one
- else {
-   for (let i = 0; i < cartContents.length; i++) {
-     if (cartContents[i].Id == product.Id) {
-       cartContents[i].Quantity += 1;
-     }
-   }
- }
- setLocalStorage("so-cart", cartContents);
+  // animate cart
+  animateCart();
+  console.log(product);
+
+  // then if the product is not yet in the cart, add the current product to the list
+  if (!product.Quantity) {
+    product.Quantity = 1;
+    cartContents.push(product);
+  }
+  // If it is already in the cart, look for it and increase the quantity by one
+  else {
+    for (let i = 0; i < cartContents.length; i++) {
+      if (cartContents[i].Id == product.Id) {
+        cartContents[i].Quantity += 1;
+      }
+    }
+  }
+  setLocalStorage("so-cart", cartContents);
+
+  // update cart total
+  updateCart();
 }
 function renderProductDetails() {
   console.log(product);
@@ -54,7 +59,9 @@ function renderProductDetails() {
 // jj--animate-cart trello
 function animateCart() {
   // select the cart backpack icon
-  let bag = document.querySelector(".backpack");
+  let bag = document.querySelector(".cart").querySelector("a > svg");
+  // let bag = document.querySelector(".backpack");
+  bag.classList.add("backpack");
   // add the animation class to the cart backpack icon
   bag.classList.add("stuffed");
 
@@ -67,10 +74,12 @@ function animateCart() {
     { once: true }
   );
   // Source: https://www.javascripttutorial.net/dom/events/create-a-one-off-event-handler/
+}
 
+function updateCart() {
   const cartCount = document.querySelector(".cart-count");
   let itemList = getLocalStorage("so-cart");
-  let count = itemList.length;
+  let count = itemList.reduce((sum, itemValue) => sum + itemValue.Quantity, 0);
   cartCount.innerHTML = count;
 
   if (count == 0) {
