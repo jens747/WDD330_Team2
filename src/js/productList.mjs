@@ -19,12 +19,41 @@ function productCardTemplate(product) {
   // }
 }
 
-export default async function productList(category, selector) {
+export default async function productList(category, selector, sortBy = "none") {
   const elm = document.querySelector(selector);
   const data = await getProductsByCategory(category);
+  sortData(data, sortBy);
   // console.log(data);
   renderListWithTemplate(productCardTemplate, elm, data);
   document.querySelector(".title").innerHTML = category;
+}
+
+function sortData(data, sortBy) {
+  if (sortBy == "none") {
+    return data;
+  } else if (sortBy == "name") {
+    data.sort(sortByName);
+    return data;
+  } else if (sortBy == "price") {
+    data.sort(sortByPrice);
+    return data;
+  }
+}
+
+function sortByName(a, b) {
+  let x = a.NameWithoutBrand.toLowerCase();
+  let y = b.NameWithoutBrand.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+}
+
+function sortByPrice(a, b) {
+  let x = a.ListPrice;
+  let y = b.ListPrice;
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
 }
 
 // function renderList(dataList, selector) {

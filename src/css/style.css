@@ -429,6 +429,11 @@ fieldset {
   color: var(--dark-grey);
 }
 
+.product_list-sort {
+  margin: 0.2em;
+  font-size: var(--small-font);
+}
+
 /* checkout styles */
 .checkout-form {
   padding: 0.5em;
