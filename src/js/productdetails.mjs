@@ -10,6 +10,8 @@ export default async function productDetails(productId) {
   renderProductDetails();
   // once the HTML is rendered we can add a listener to Add to Cart button
   document.getElementById("addToCart").addEventListener("click", addToCart);
+  // we can also create the bread crumb in the top left corner
+  document.querySelector(".title").innerHTML = product.Category;
 }
 function addToCart() {
   let cartContents = getLocalStorage("so-cart");
@@ -40,38 +42,12 @@ function addToCart() {
   updateCart();
 }
 function renderProductDetails() {
+  console.log(product);
   document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
     product.NameWithoutBrand;
-  // document.querySelector("#productImage").src = product.Image;
-  // document.querySelector("#productImage").alt = product.Name;
-
-  // jj--correct-product-image-size
-  const productPicture = document.querySelector("#productPicture");
-  const imgXLarge = document.createElement("source");
-  imgXLarge.setAttribute("media", "(min-width: 320px)");
-  imgXLarge.setAttribute("srcset", product.Images.PrimaryExtraLarge);
-  productPicture.appendChild(imgXLarge);
-
-  const imgLarge = document.createElement("source");
-  imgLarge.setAttribute("media", "(min-width: 256px)");
-  imgLarge.setAttribute("srcset", product.Images.PrimaryLarge);
-  productPicture.appendChild(imgLarge);
-
-  const imgMedium = document.createElement("source");
-  imgMedium.setAttribute("media", "(min-width: 192px)");
-  imgMedium.setAttribute("srcset", product.Images.PrimaryMedium);
-  productPicture.appendChild(imgMedium);
-
-  // Creating the <img> element for the default image
-  const imgElement = document.createElement("img");
-  imgElement.setAttribute("src", product.Images.PrimarySmall);
-  imgElement.setAttribute("alt", `Image of ${product.Name}`);
-  imgElement.id = "productImage"; // Re-adding the ID if needed
-  imgElement.className = "divider"; // Re-adding any classes if needed
-  productPicture.appendChild(imgElement);
-  // jj--correct-product-image-size ends
-
+  document.querySelector("#productPicture").src = product.Image;
+  document.querySelector("#productPicture").alt = product.Name;
   document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
   document.querySelector("#productColorName").innerText =
     product.Colors[0].ColorName;
