@@ -25,7 +25,7 @@ export default async function productList(category, selector, sortBy = "none") {
   sortData(data, sortBy);
   // console.log(data);
   renderListWithTemplate(productCardTemplate, elm, data);
-  document.querySelector(".title").innerHTML = category;
+  document.querySelector(".title").innerHTML = `${category} → ${data.length}`;
 }
 
 function sortData(data, sortBy) {

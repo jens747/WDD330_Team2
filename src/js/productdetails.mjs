@@ -10,6 +10,8 @@ export default async function productDetails(productId) {
   renderProductDetails();
   // once the HTML is rendered we can add a listener to Add to Cart button
   document.getElementById("addToCart").addEventListener("click", addToCart);
+  // we can also create the bread crumb in the top left corner
+  document.querySelector(".title").innerHTML = product.Category;
 }
 function addToCart() {
   let cartContents = getLocalStorage("so-cart");
@@ -35,11 +37,12 @@ function addToCart() {
  setLocalStorage("so-cart", cartContents);
 }
 function renderProductDetails() {
+  console.log(product);
   document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
     product.NameWithoutBrand;
-  document.querySelector("#productImage").src = product.Image;
-  document.querySelector("#productImage").alt = product.Name;
+  document.querySelector("#productPicture").src = product.Image;
+  document.querySelector("#productPicture").alt = product.Name;
   document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
   document.querySelector("#productColorName").innerText =
     product.Colors[0].ColorName;
