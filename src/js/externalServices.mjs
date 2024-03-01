@@ -2,6 +2,7 @@
 const baseURL = "https://wdd330-backend.onrender.com/";
 
 function convertToJson(res) {
+  const jsonResponse = res.json();
   if (res.ok) {
     return jsonResponse;
   } else {
