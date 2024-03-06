@@ -14,7 +14,7 @@ function productCardTemplate(product) {
     </picture>
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
-    <p class="product-card__price">$${product.FinalPrice}</p></a>
+    <p class="product-card__price"><span class="product_list-discount">$${product.SuggestedRetailPrice}</span>$${product.FinalPrice}</p></a>
     </li>`; 
   // }
 }
@@ -25,6 +25,7 @@ export default async function productList(category, selector, sortBy = "none") {
   sortData(data, sortBy);
   // console.log(data);
   renderListWithTemplate(productCardTemplate, elm, data);
+
   document.querySelector(".title").innerHTML = `${category} → ${data.length}`;
 }
 

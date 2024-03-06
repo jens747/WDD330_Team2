@@ -434,6 +434,13 @@ fieldset {
   font-size: var(--small-font);
 }
 
+.product_list-discount {
+  font-size: 0.8em;
+  margin-right: 0.5em;
+  font-style: italic;
+  text-decoration: line-through;
+}
+
 /* checkout styles */
 .checkout-form {
   padding: 0.5em;
