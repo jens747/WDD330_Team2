@@ -6,6 +6,9 @@ import productDetails from "./productdetails.mjs";
 const productId = getParam("product");
 productDetails(productId);
 
+console.log(productDetails)
+
+
 // function addProductToCart(product) {
 //   // get the contents of the cart
 //   let storage = getLocalStorage("so-cart");
